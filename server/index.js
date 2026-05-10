@@ -34,14 +34,27 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Ampere server running on port ${PORT}`);
 
-  // Start cron jobs
-  if (process.env.NODE_ENV !== 'test') {
-    const { startCrons } = require('./crons');
-    startCrons();
+async function startServer() {
+  try {
+    // Initialize database
+    const { initializeDB } = require('./db/supabase');
+    await initializeDB();
+
+    app.listen(PORT, () => {
+      console.log(`✓ Ampere server running on port ${PORT}`);
+
+      // Start cron jobs
+      if (process.env.NODE_ENV !== 'test') {
+        const { startCrons } = require('./crons');
+        startCrons();
+      }
+    });
+  } catch (error) {
+    console.error('✗ Server startup failed:', error.message);
+    process.exit(1);
   }
-});
+}
 
+startServer();
 module.exports = app;
