@@ -1,12 +1,14 @@
 const supabase = require('../db/supabase');
 const { sendWeeklyInsightsEmail } = require('../services/resend');
 const { generateInsightReport } = require('../services/intelligence');
-const { createClerkClient } = require('@clerk/clerk-sdk-node');
 
 async function sendWeeklyInsights() {
   console.log('[cron] sendWeeklyInsights — starting');
 
-  const clerk = createClerkClient({ secretKey: process.env.CLERK_SECRET_KEY });
+  if (!process.env.FROM_EMAIL) {
+    console.log('[cron] sendWeeklyInsights — FROM_EMAIL not configured, skipping');
+    return;
+  }
 
   const { data: products } = await supabase
     .from('products')
@@ -87,20 +89,15 @@ async function sendWeeklyInsights() {
           .eq('id', report.id);
       }
 
-      // Get user email from Clerk
-      const user = await clerk.users.getUser(product.user_id);
-      const email = user.emailAddresses?.[0]?.emailAddress;
-      if (!email) continue;
-
       await sendWeeklyInsightsEmail({
-        to: email,
-        name: user.firstName,
+        to: process.env.FROM_EMAIL,
+        name: 'there',
         report: weekData,
         insights,
         productName: product.name
       });
 
-      console.log(`[cron] sendWeeklyInsights — sent for ${product.name} to ${email}`);
+      console.log(`[cron] sendWeeklyInsights — sent for ${product.name} to ${process.env.FROM_EMAIL}`);
     } catch (e) {
       console.error(`[cron] sendWeeklyInsights — error for ${product.name}:`, e.message);
     }
