@@ -1,5 +1,15 @@
 .streamlit/secrets.toml
 
+# Node.js
+node_modules/
+client/node_modules/
+server/node_modules/
+client/dist/
+client/.vite/
+npm-debug.log*
+.env.local
+.env.production
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
