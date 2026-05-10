@@ -5,18 +5,6 @@ const api = axios.create({
   timeout: 30000
 });
 
-// Attach Clerk token to every request
-api.interceptors.request.use(async (config) => {
-  try {
-    const { getToken } = window.__clerk_session || {};
-    if (getToken) {
-      const token = await getToken();
-      if (token) config.headers.Authorization = `Bearer ${token}`;
-    }
-  } catch {}
-  return config;
-});
-
 // Products
 export const getProducts = () => api.get('/products').then(r => r.data);
 export const createProduct = (data) => api.post('/products', data).then(r => r.data);
@@ -56,8 +44,3 @@ export const generateBatch = (productId) => api.post('/generate/batch', { produc
 export const generateRedditReply = (data) => api.post('/generate/reddit-reply', data).then(r => r.data);
 
 export default api;
-
-// Attach session accessor for token interceptor
-export function setClerkSession(session) {
-  window.__clerk_session = session;
-}
