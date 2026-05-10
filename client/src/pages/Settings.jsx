@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useUser, useClerk } from '@clerk/clerk-react';
-import TopBar from '../components/layout/TopBar';
-import Button from '../components/ui/Button';
-import Toggle from '../components/ui/Toggle';
+import TopBar from '../components/layout/TopBar.jsx';
+import Button from '../components/ui/Button.jsx';
+import Toggle from '../components/ui/Toggle.jsx';
 
 export default function Settings() {
   const { user } = useUser();

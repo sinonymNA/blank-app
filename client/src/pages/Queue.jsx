@@ -1,10 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
-import { getQueue, approveItem, skipItem, editItem, regenerateItem, approveAll } from '../lib/api';
-import TopBar from '../components/layout/TopBar';
-import ContentCard from '../components/queue/ContentCard';
-import SwipeCard from '../components/queue/SwipeCard';
-import QueueEmpty from '../components/queue/QueueEmpty';
-import Button from '../components/ui/Button';
+import { getQueue, approveItem, skipItem, editItem, regenerateItem, approveAll } from '../lib/api.js';
+import TopBar from '../components/layout/TopBar.jsx';
+import ContentCard from '../components/queue/ContentCard.jsx';
+import SwipeCard from '../components/queue/SwipeCard.jsx';
+import QueueEmpty from '../components/queue/QueueEmpty.jsx';
+import Button from '../components/ui/Button.jsx';
 
 const PLATFORMS = ['all', 'reddit', 'pinterest', 'email', 'facebook', 'blog'];
 

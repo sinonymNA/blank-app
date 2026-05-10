@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { useUser } from '@clerk/clerk-react';
 import { useEffect, useState } from 'react';
-import { getQueueCount } from '../../lib/api';
+import { getQueueCount } from '../../lib/api.js';
 
 const NAV = [
   { to: '/', label: 'Dashboard', icon: '◈', exact: true },

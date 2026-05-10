@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { getProducts, getPlatforms, connectPlatform, disconnectPlatform, testPlatform, getRedditMonitors, addRedditMonitor, removeRedditMonitor } from '../lib/api';
-import TopBar from '../components/layout/TopBar';
-import Button from '../components/ui/Button';
-import Modal from '../components/ui/Modal';
-import Input from '../components/ui/Input';
+import { getProducts, getPlatforms, connectPlatform, disconnectPlatform, testPlatform, getRedditMonitors, addRedditMonitor, removeRedditMonitor } from '../lib/api.js';
+import TopBar from '../components/layout/TopBar.jsx';
+import Button from '../components/ui/Button.jsx';
+import Modal from '../components/ui/Modal.jsx';
+import Input from '../components/ui/Input.jsx';
 
 const PLATFORM_INFO = {
   reddit: { label: 'Reddit', icon: '🔴', description: 'Monitor subreddits and reply to threads' },

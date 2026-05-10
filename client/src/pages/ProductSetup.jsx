@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { createProduct, updateProduct, getProduct, addRedditMonitor, generateBatch } from '../lib/api';
-import Input from '../components/ui/Input';
-import Button from '../components/ui/Button';
+import { createProduct, updateProduct, getProduct, addRedditMonitor, generateBatch } from '../lib/api.js';
+import Input from '../components/ui/Input.jsx';
+import Button from '../components/ui/Button.jsx';
 
 const TONES = [
   { value: 'warm_helpful', label: 'Warm & friendly', description: 'Like a helpful neighbor' },

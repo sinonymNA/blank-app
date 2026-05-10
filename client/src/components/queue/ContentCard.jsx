@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { platformLabel, platformColor, urgencyColor, engagementStars, timeAgo } from '../../lib/utils';
+import { platformLabel, platformColor, urgencyColor, engagementStars, timeAgo } from '../../lib/utils.js';
 import Button from '../ui/Button';
-import EditModal from './EditModal';
+import EditModal from './EditModal.jsx';
 
 export default function ContentCard({ item, onApprove, onSkip, onRegenerate, compact }) {
   const [showEdit, setShowEdit] = useState(false);

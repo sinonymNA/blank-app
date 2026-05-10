@@ -1,4 +1,4 @@
-import { platformLabel, platformColor } from '../../lib/utils';
+import { platformLabel, platformColor } from '../../lib/utils.js';
 
 export default function PlatformBreakdown({ data }) {
   const platforms = Object.entries(data || {});

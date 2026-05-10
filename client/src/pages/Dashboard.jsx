@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUser } from '@clerk/clerk-react';
-import { getProducts, getQueueCount, getPlatforms, getAnalytics } from '../lib/api';
-import { formatMoney, timeAgo } from '../lib/utils';
-import Button from '../components/ui/Button';
-import ProductCard from '../components/products/ProductCard';
-import EmptyState from '../components/ui/EmptyState';
+import { getProducts, getQueueCount, getPlatforms, getAnalytics } from '../lib/api.js';
+import { formatMoney, timeAgo } from '../lib/utils.js';
+import Button from '../components/ui/Button.jsx';
+import ProductCard from '../components/products/ProductCard.jsx';
+import EmptyState from '../components/ui/EmptyState.jsx';
 
 const GREETING = () => {
   const h = new Date().getHours();

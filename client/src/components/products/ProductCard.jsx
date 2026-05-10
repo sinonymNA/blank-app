@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { platformColor } from '../../lib/utils';
+import { platformColor } from '../../lib/utils.js';
 import Button from '../ui/Button';
 
 const PLATFORM_ICONS = {

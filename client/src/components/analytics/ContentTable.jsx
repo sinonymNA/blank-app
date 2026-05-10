@@ -1,4 +1,4 @@
-import { platformLabel, platformColor, truncate } from '../../lib/utils';
+import { platformLabel, platformColor, truncate } from '../../lib/utils.js';
 
 export default function ContentTable({ data }) {
   if (!data?.length) return (

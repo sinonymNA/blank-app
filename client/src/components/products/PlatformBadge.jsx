@@ -1,4 +1,4 @@
-import { platformLabel, platformColor } from '../../lib/utils';
+import { platformLabel, platformColor } from '../../lib/utils.js';
 
 export default function PlatformBadge({ platform, status = 'active' }) {
   const statusColors = {

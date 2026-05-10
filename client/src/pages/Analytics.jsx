@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getProducts, getAnalytics, getBestContent } from '../lib/api';
-import TopBar from '../components/layout/TopBar';
-import MetricCard from '../components/analytics/MetricCard';
-import FunnelChart from '../components/analytics/FunnelChart';
-import PlatformBreakdown from '../components/analytics/PlatformBreakdown';
-import ContentTable from '../components/analytics/ContentTable';
+import { getProducts, getAnalytics, getBestContent } from '../lib/api.js';
+import TopBar from '../components/layout/TopBar.jsx';
+import MetricCard from '../components/analytics/MetricCard.jsx';
+import FunnelChart from '../components/analytics/FunnelChart.jsx';
+import PlatformBreakdown from '../components/analytics/PlatformBreakdown.jsx';
+import ContentTable from '../components/analytics/ContentTable.jsx';
 
 const RANGES = [
   { label: '7d', value: '7' },

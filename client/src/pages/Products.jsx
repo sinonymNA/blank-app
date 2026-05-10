@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getProducts, getPlatforms, getQueueCount, deleteProduct } from '../lib/api';
-import TopBar from '../components/layout/TopBar';
-import ProductCard from '../components/products/ProductCard';
-import Button from '../components/ui/Button';
-import EmptyState from '../components/ui/EmptyState';
+import { getProducts, getPlatforms, getQueueCount, deleteProduct } from '../lib/api.js';
+import TopBar from '../components/layout/TopBar.jsx';
+import ProductCard from '../components/products/ProductCard.jsx';
+import Button from '../components/ui/Button.jsx';
+import EmptyState from '../components/ui/EmptyState.jsx';
 
 export default function Products() {
   const navigate = useNavigate();

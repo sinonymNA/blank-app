@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import { platformLabel, platformColor, engagementStars } from '../../lib/utils';
+import { platformLabel, platformColor, engagementStars } from '../../lib/utils.js';
 
 export default function SwipeCard({ item, onApprove, onSkip, onTap }) {
   const x = useMotionValue(0);
