@@ -1,5 +1,4 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
 import { useEffect, useState } from 'react';
 import { getQueueCount } from '../../lib/api.js';
 
@@ -13,7 +12,6 @@ const NAV = [
 ];
 
 export default function Sidebar() {
-  const { user } = useUser();
   const location = useLocation();
   const [pendingCount, setPendingCount] = useState(0);
 
@@ -62,23 +60,6 @@ export default function Sidebar() {
           </NavLink>
         ))}
       </nav>
-
-      {/* User */}
-      {user && (
-        <div className="px-4 py-4 border-t border-white/10">
-          <div className="flex items-center gap-2.5">
-            <img
-              src={user.imageUrl}
-              alt={user.firstName}
-              className="w-7 h-7 rounded-full"
-            />
-            <div className="min-w-0">
-              <div className="text-sm font-medium text-white truncate">{user.firstName} {user.lastName}</div>
-              <div className="text-xs text-white/40 truncate">{user.primaryEmailAddress?.emailAddress}</div>
-            </div>
-          </div>
-        </div>
-      )}
     </aside>
   );
 }

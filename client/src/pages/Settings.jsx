@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { useUser, useClerk } from '@clerk/clerk-react';
 import TopBar from '../components/layout/TopBar.jsx';
 import Button from '../components/ui/Button.jsx';
 import Toggle from '../components/ui/Toggle.jsx';
 
 export default function Settings() {
-  const { user } = useUser();
-  const { signOut } = useClerk();
   const [notifications, setNotifications] = useState({
     morningDigest: true,
     weeklyInsights: true,
@@ -24,25 +21,6 @@ export default function Settings() {
       <TopBar title="Settings" />
 
       <div className="px-6 py-5 max-w-xl space-y-6 fade-in">
-        {/* Account */}
-        <div className="bg-white border border-[#E4E4E7] rounded-xl shadow-sm overflow-hidden">
-          <div className="px-5 py-4 border-b border-[#E4E4E7]">
-            <span className="text-xs font-semibold uppercase tracking-wider text-[#71717A]">Account</span>
-          </div>
-          <div className="p-5">
-            <div className="flex items-center gap-3 mb-4">
-              {user?.imageUrl && (
-                <img src={user.imageUrl} alt="" className="w-12 h-12 rounded-full" />
-              )}
-              <div>
-                <div className="font-semibold text-[#18181B]">{user?.firstName} {user?.lastName}</div>
-                <div className="text-sm text-[#71717A]">{user?.primaryEmailAddress?.emailAddress}</div>
-              </div>
-            </div>
-            <Button variant="secondary" size="sm" onClick={() => signOut()}>Sign out</Button>
-          </div>
-        </div>
-
         {/* Notifications */}
         <div className="bg-white border border-[#E4E4E7] rounded-xl shadow-sm overflow-hidden">
           <div className="px-5 py-4 border-b border-[#E4E4E7]">

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useUser } from '@clerk/clerk-react';
 import { getProducts, getQueueCount, getPlatforms, getAnalytics } from '../lib/api.js';
 import { formatMoney, timeAgo } from '../lib/utils.js';
 import Button from '../components/ui/Button.jsx';
@@ -15,7 +14,6 @@ const GREETING = () => {
 };
 
 export default function Dashboard() {
-  const { user } = useUser();
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [platforms, setPlatforms] = useState({});
@@ -79,9 +77,7 @@ export default function Dashboard() {
       <div className="px-6 py-5 border-b border-[#E4E4E7] bg-white">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-xl font-bold text-[#18181B]">
-              {GREETING()}{user?.firstName ? `, ${user.firstName}` : ''}
-            </h1>
+            <h1 className="text-xl font-bold text-[#18181B]">{GREETING()}</h1>
             <p className="text-sm text-[#71717A] mt-0.5">{today}</p>
           </div>
           {totalPending > 0 && (
